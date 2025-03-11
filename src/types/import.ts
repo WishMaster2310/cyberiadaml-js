@@ -61,19 +61,6 @@ export type CGMLVertex = {
   position?: CGMLPoint | CGMLRectangle;
 };
 
-export type CGMLFinalState = {
-  position: CGMLPoint;
-};
-
-export type CGMLChoice = {
-  position: CGMLPoint;
-};
-
-export type CGMLTerminate = {
-  position: CGMLPoint;
-  exitCode: number;
-};
-
 export type CGMLMeta = {
   id: string;
   values: { [id: string]: string };
@@ -117,6 +104,8 @@ export type CGMLStateMachine = {
   finals: { [id: string]: CGMLVertex };
   choices: { [id: string]: CGMLVertex };
   terminates: { [id: string]: CGMLVertex };
+  shallowHistory: { [id: string]: CGMLVertex };
+  deepHistory: { [id: string]: CGMLVertex };
   unknownVertexes: { [id: string]: CGMLVertex };
   position?: CGMLPoint;
   dimensions?: CGMLDimensions;

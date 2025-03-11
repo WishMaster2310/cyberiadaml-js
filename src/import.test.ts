@@ -8,6 +8,8 @@ test('test parsing arduino', () => {
   const predicted: CGMLElements = {
     stateMachines: {
       G: {
+        shallowHistory: {},
+        deepHistory: {},
         name: 'Моя любимая машина состояний!',
         states: {
           diod1: {
@@ -257,6 +259,8 @@ test('test parsing Arduino multidocument', () => {
   const predicted: CGMLElements = {
     stateMachines: {
       G: {
+        shallowHistory: {},
+        deepHistory: {},
         standardVersion: '1.0',
         platform: 'ArduinoUno',
         meta: {
@@ -410,6 +414,8 @@ test('test parsing Arduino multidocument', () => {
         unknownVertexes: {},
       },
       O: {
+        shallowHistory: {},
+        deepHistory: {},
         standardVersion: '1.0',
         platform: 'ArduinoUno',
         meta: {
@@ -660,6 +666,8 @@ test('test parsing bearloga', () => {
   const predicted: CGMLElements = {
     stateMachines: {
       G: {
+        shallowHistory: {},
+        deepHistory: {},
         platform: 'BearsTowerDefence',
         meta: {
           values: {
@@ -1017,6 +1025,8 @@ test('test parsing arduino with textMode', () => {
   const predicted: CGMLTextElements = {
     stateMachines: {
       G: {
+        shallowHistory: {},
+        deepHistory: {},
         name: 'Моя любимая машина состояний!',
         states: {
           diod1: {
@@ -1236,6 +1246,8 @@ test('test parse-export-parse cycle, state nested >2', () => {
   const predicted: CGMLElements = {
     stateMachines: {
       g: {
+        shallowHistory: {},
+        deepHistory: {},
         states: {
           diod1: {
             name: 'Включен',

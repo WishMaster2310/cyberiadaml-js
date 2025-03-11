@@ -178,10 +178,7 @@ function getSourcePointDataNode(point: CGMLPoint): ExportDataNode {
 
 function getExportNodes(
   states: { [id: string]: CGMLState | CGMLTextState },
-  initialStates: { [id: string]: CGMLVertex },
-  terminates: { [id: string]: CGMLVertex },
-  finals: { [id: string]: CGMLVertex },
-  choices: { [id: string]: CGMLVertex },
+  vertexes: { [id: string]: CGMLVertex },
   textMode: boolean,
 ): ExportNode[] {
   const nodes: { [id: string]: ExportNode } = {};
@@ -230,8 +227,6 @@ function getExportNodes(
     const node: ExportNode = getExportNode(stateId);
     addToParent(state.parent, node, stateId);
   }
-
-  const vertexes = { ...terminates, ...finals, ...choices, ...initialStates };
 
   for (const vertexId in vertexes) {
     const vertex = vertexes[vertexId];
@@ -443,10 +438,14 @@ function getGraphs(elements: CGMLElements | CGMLTextElements, textMode: boolean)
       node: [
         ...getExportNodes(
           stateMachine.states,
-          stateMachine.initialStates,
-          stateMachine.terminates,
-          stateMachine.finals,
-          stateMachine.choices,
+          {
+            ...stateMachine.initialStates,
+            ...stateMachine.terminates,
+            ...stateMachine.finals,
+            ...stateMachine.choices,
+            ...stateMachine.deepHistory,
+            ...stateMachine.shallowHistory,
+          },
           textMode,
         ),
         ...getComponentStates(stateMachine.components),

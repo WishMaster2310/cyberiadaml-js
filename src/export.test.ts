@@ -14,6 +14,7 @@ describe('test parse-export-parse cycle', () => {
     ['demos/21-cyb-geometry2.test-input.graphml'],
     ['demos/23-cyb-autoborder.test-input.graphml'],
     ['demos/nested.graphml'],
+    ['demos/with_local_history.graphml'],
   ])(`parsing demo %p`, (path) => {
     const fileContent: string = readFileSync(path, 'utf-8');
     const parsed: CGMLElements = parseCGML(fileContent);

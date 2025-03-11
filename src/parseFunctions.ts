@@ -272,6 +272,9 @@ function processTransitions(
 ) {
   for (const idx in edges) {
     const edge = edges[idx];
+    if (edge.data !== undefined && !Array.isArray(edge.data)) {
+      edge.data = [edge.data];
+    }
     let transition: CGMLTextTransition | CGMLTransition;
     if (textMode) {
       transition = {
@@ -488,6 +491,12 @@ export function processGraph(
           break;
         case 'terminate':
           stateMachine.terminates[node.id] = vertex;
+          break;
+        case 'shallowHistory':
+          stateMachine.shallowHistory[node.id] = vertex;
+          break;
+        case 'deepHistory':
+          stateMachine.deepHistory[node.id] = vertex;
           break;
         default:
           stateMachine.unknownVertexes[node.id] = vertex;
