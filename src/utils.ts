@@ -29,6 +29,8 @@ export function toArray<Type>(value: Type | Array<Type>): Array<Type> {
 
 export function emptyCGMLStateMachine(): CGMLStateMachine {
   return {
+    shallowHistory: {},
+    deepHistory: {},
     platform: '',
     standardVersion: '',
     meta: {
