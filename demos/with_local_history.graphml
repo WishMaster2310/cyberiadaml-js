@@ -85,6 +85,13 @@ LED3.off();
           </data>
           <data key="dName">Локальная история</data>
         </node>
+        <node id="deepHistory">
+          <data key="dVertex">deepHistory</data>
+          <data key="dGeometry">
+            <point x="80" y="222"></point>
+          </data>
+          <data key="dName">Глубокая история</data>
+        </node>
         <node id="ydohplvyvlfhexlwwwle">
           <data key="dVertex">initial</data>
           <data key="dGeometry">
